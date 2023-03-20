@@ -1,5 +1,5 @@
 # IMC
 
-## please switch branch to develope
+## please switch branch to develop
 
 stonks
