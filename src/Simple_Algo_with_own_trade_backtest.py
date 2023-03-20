@@ -14,19 +14,19 @@ class Trader:
         print(";skip")
         for product in state.order_depths.keys():
 
-            #check if PEARLS
-            if product  == 'PEARLS':
+            # check if PEARLS
+            if product == 'PEARLS':
                 
-                #retrieve market orders 
+                # retrieve market orders
                 order_depth: OrderDepth = state.order_depths[product]
 
-                #initialize orders to be sent
+                # initialize orders to be sent
                 orders: list[Order] = []
 
-                #define a fair value for PEARLS
+                # define a fair value for PEARLS
                 acceptable_price = 10000
 
-                #check for SELL orders
+                # check for SELL orders
                 if len(order_depth.sell_orders) > 0:
 
                     #sort available sell orders by price 
@@ -40,7 +40,7 @@ class Trader:
                         #print(str(timestamp)+ ";" + product + ";", str(best_ask) + ";", str(best_ask_volume) + ";;")
                         orders.append(Order(product, best_ask, -best_ask_volume))
 
-                #check for BUY orders
+                # check for BUY orders
                 if len(order_depth.buy_orders) > 0:
 
                     #sort available buy orders by price
@@ -105,7 +105,7 @@ class Trader:
                 for trade in trades: 
                     if trade.timestamp == timestamp - 100:
                         print("symbol " + trade.symbol + " price ", str(trade.price) + " quantity ", str(trade.quantity) + " timestamp ", str(trade.timestamp))
-                #if len(own_trades[product] > 0):
+                # if len(own_trades[product] > 0):
                  #   print("TEST")
                     #for trade in own_trades[product]:
                      #   print("price", str(trade.price) + "quantity", str(quantity) + "timestamp", str(trade.timestamp))
